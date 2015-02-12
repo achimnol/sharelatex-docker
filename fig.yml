@@ -1,8 +1,11 @@
 sharelatex:
-  build: .
+  #build: .
+  image: achimnol/sharelatex:proxied
   command: sharelatex.sh
   ports:
-   - "3000:3000"
+   - "127.0.0.1:3000:3000"
+  expose:
+   - "3000"
   volumes:
-   - db:/data/db
-   - user_files:/sharelatex/user_files
+   - mongodb:/data/db
+   - data:/sharelatex/data
